@@ -24,7 +24,7 @@
             <div class="media-left productSlider">
               <div id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                  <% @images.each_with_index do |image,i| %>
+                  <% @images.each_with_index do |image, i| %>
                     <% if i==0 %>
                       <div class="item active" data-thumb="0"><%= image_tag  image.url %></div>
                     <% elsif i==1 %>
@@ -40,7 +40,7 @@
               <div class="clearfix">
                 <div id="thumbcarousel" class="carousel slide" data-interval="false">
                   <div class="carousel-inner">
-                    <% @images.each_with_index do |image,i| %>
+                    <% @images.each_with_index do |image, i| %>
                       <% if i==0 %>
                         <div data-target="#carousel" data-slide-to="0" class="thumb"><%= image_tag image.url %></div>
                       <% elsif i==1 %>
