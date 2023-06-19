@@ -7,5 +7,17 @@ RSpec.describe "Potepan::Products", type: :request do
       get potepan_product_path(product.id)
       expect(response).to have_http_status(:success)
     end
+
+    before do
+      get potepan_product_path(product.id)
+    end
+
+    it "商品名を取得できること" do
+      expect(response.body).to include(product.name)
+    end
+
+    it "商品価格を取得できること" do
+      expect(response.body).to include(product.price.to_s)
+    end
   end
 end
