@@ -1,3 +1,4 @@
+<% provide(:title, @product.name) %>
 <div class="main-wrapper">
   <section class="lightSection clearfix pageHeader">
     <div class="container">
@@ -25,7 +26,9 @@
               <div id="carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <% @images.each_with_index do |image, i| %>
-                    <div class="item <%= "active" if i.zero? %>" data-thumb="<%= i %>"><%= image_tag  image.url %></div>                    
+                    <div class="item <%= "active" if i.zero? %>" data-thumb="<%= i %>">
+                      <%= image_tag image.attachment(:large) %>
+                    </div>                    
                   <% end %>
                 </div>
               </div>
@@ -33,7 +36,9 @@
                 <div id="thumbcarousel" class="carousel slide" data-interval="false">
                   <div class="carousel-inner">
                     <% @images.each_with_index do |image, i| %>
-                      <div data-target="#carousel" data-slide-to="<%= i %>" class="thumb"><%= image_tag image.url %></div>                      
+                      <div data-target="#carousel" data-slide-to="<%= i %>" class="thumb">
+                        <%= image_tag image.attachment(:small) %>
+                      </div>                      
                     <% end %>
                   </div>
                   <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">

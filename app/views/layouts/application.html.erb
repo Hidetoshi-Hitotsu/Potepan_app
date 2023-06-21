@@ -4,11 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% if @product.present? %>
-      <title><%= @product.name %> - BIGBAG Store</title>
-    <% else%>
-      <title>BIGBAG Store</title>
-    <% end %>
+    <title><%= pagetitle(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Oxygen:400,300,700', :media => "all" %>
     <!-- CUSTOM CSS -->
@@ -19,11 +15,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <%= csrf_meta_tags %>
-    <%= javascript_include_tag 'application' %>
   </head>
   <body>
     <%= render 'shared/header'%>
     <%= yield %>
     <%= render 'shared/footer' %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
