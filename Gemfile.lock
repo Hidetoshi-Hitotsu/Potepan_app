@@ -1205,6 +1205,10 @@ GEM
     diff-lcs (1.4.4)
     discard (1.2.0)
       activerecord (>= 4.2, < 7)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
     factory_bot (6.2.0)
@@ -1541,6 +1545,7 @@ DEPENDENCIES
   aws-sdk (~> 3.0)
   bootsnap
   byebug
+  dotenv-rails
   factory_bot_rails
   jbuilder (~> 2.11)
   listen (>= 3.0.5, < 4.0)

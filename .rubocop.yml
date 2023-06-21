@@ -11,7 +11,7 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'bin/*'
-    - 'config/*'
+    - 'config/**/*'
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
