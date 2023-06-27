@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
-  describe "pagetitle helper のテスト" do
+  describe "#page_title" do
     context "pagetitleがnilである" do
       it "BIGBAG Storeが表示される" do
         expect(pagetitle('')).to eq('BIGBAG Store')

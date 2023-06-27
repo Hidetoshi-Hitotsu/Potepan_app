@@ -1,9 +1,10 @@
 module ApplicationHelper
-  def pagetitle(title)
+  def page_title(title)
+    base_title = "BIGBAG Store"
     if title.present?
-      "#{title} - BIGBAG Store"
+      "#{title} - #{base_title}"
     else
-      "BIGBAG Store"
+      base_title
     end
   end
 end
