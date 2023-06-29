@@ -3,14 +3,20 @@ require 'rails_helper'
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#page_title" do
     context "引数がnilである" do
-      it "BIGBAG Storeが表示される" do
-        expect(page_title("")).to eq('BIGBAG Store')
+      it "#{Constants::BASE_TITLE}が表示される" do
+        expect(page_title(nil)).to eq(Constants::BASE_TITLE)
       end
     end
 
     context "引数がnilでない" do
-      it "pagetitleとBIGBAG Storeが表示される" do
-        expect(page_title('PageTitle')).to eq('PageTitle - BIGBAG Store')
+      it "pagetitleと#{Constants::BASE_TITLE}が表示される" do
+        expect(page_title('PageTitle')).to eq("PageTitle - #{Constants::BASE_TITLE}")
+      end
+    end
+
+    context "引数が空文字である" do
+      it "#{Constants::BASE_TITLE}が表示される" do
+        expect(page_title('')).to eq(Constants::BASE_TITLE)
       end
     end
   end
