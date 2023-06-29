@@ -4,7 +4,7 @@ RSpec.describe ApplicationHelper, type: :helper do
   describe "#page_title" do
     context "引数がnilである" do
       it "BIGBAG Storeが表示される" do
-        expect(page_title('')).to eq('BIGBAG Store')
+        expect(page_title("")).to eq('BIGBAG Store')
       end
     end
 
