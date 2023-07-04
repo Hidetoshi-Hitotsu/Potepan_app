@@ -1,0 +1,16 @@
+<% provide(:title, @taxon.name) %>
+<%= render 'shared/page_header', page_name: @taxon.name%>
+<section class="mainContent clearfix productsContent">
+  <div class="container">
+    <div class="row">
+      <%= render 'sidebar', taxonomies: @taxonomies %>
+      <div class="col-md-9 col-sm-8 col-xs-12">
+        <%= render 'filter_area' %>
+        <div class="row">
+          <%= render partial: 'product_box', collection: @taxon.all_products, as: 'product', taxon: @taxon %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render 'footer_partners_LogoSlider' %>
