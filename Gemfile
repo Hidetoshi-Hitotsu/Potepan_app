@@ -49,6 +49,8 @@ group :development, :test do
   gem 'rails-erd'
   gem 'annotate'
   gem 'rubocop-airbnb'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
