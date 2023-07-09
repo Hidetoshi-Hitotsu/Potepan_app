@@ -1,12 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "Potepan::Categories", type: :system do
-  !let(:taxonomy) { create(:taxonomy) }
-  !let(:taxon) { create(:taxon, taxonomy: taxonomy) }
-  !let(:product) { create(:product, taxons: [taxon]) }
-  !let(:other_product) { create(:product) }
-  !let(:image) { create(:image) }
-  !let(:other_image) { create(:image) }
+  let(:taxonomy) { create(:taxonomy) }
+  let(:taxon) { create(:taxon, taxonomy: taxonomy) }
+  let(:product) { create(:product, taxons: [taxon]) }
+  let(:taxon_root) { taxonomy.root }
+  let(:other_taxon) { create(:taxon, taxonomy: taxonomy, parent: taxon_root) }
+  let(:other_product) { create(:product, taxons: [other_taxon]) }
+  let(:image) { create(:image) }
+  let(:other_image) { create(:image) }
 
   before do
     product.images << image
@@ -33,5 +35,12 @@ RSpec.describe "Potepan::Categories", type: :system do
   scenario "商品をクリックすると商品詳細ページへ遷移する" do
     click_link "#{product.name}"
     expect(current_path).to eq potepan_product_path(product.id)
+  end
+
+  scenario "カテゴリーをクリックすると対象カテゴリーのページへ遷移する" do
+    within('.side-nav') do
+      click_on other_taxon.name
+      expect(current_path).to eq potepan_category_path(other_taxon.id)
+    end
   end
 end

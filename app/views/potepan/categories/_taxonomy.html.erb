@@ -4,12 +4,12 @@
     <i class="fa fa-plus"></i>
   </a>
   <ul id="taxonomy<%= taxonomy.id %>" class="collapse collapseItem">
-    <% taxonomy.root.leaves.each do |leaf| %>
+    <% taxonomy.root.leaves.each do |taxon| %>
       <li>
-        <%= link_to potepan_category_path(leaf.id) do %>
+        <%= link_to potepan_category_path(taxon.id) do %>
           <i class="fa fa-caret-right" aria-hidden="true"></i>
-          <%= leaf.name %>
-          <span>(<%= leaf.all_products.count %>)</span>
+          <%= taxon.name %>
+          <span>(<%= taxon.all_products.count %>)</span>
         <% end %>
       </li>
     <% end %>
