@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe "Potepan::Categories", type: :system do
   let(:taxonomy) { create(:taxonomy) }
   let(:taxon_root) { taxonomy.root }
-  let!(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxon_root) }
+  let(:taxon) { create(:taxon, taxonomy: taxonomy, parent: taxon_root) }
   let(:product) { create(:product, taxons: [taxon]) }
-  let!(:other_taxon) { create(:taxon, taxonomy: taxonomy, parent: taxon_root, name: "other_taxon") }
+  let(:other_taxon) { create(:taxon, taxonomy: taxonomy, parent: taxon_root, name: "other_taxon") }
   let(:other_product) { create(:product, taxons: [other_taxon]) }
   let(:image) { create(:image) }
   let(:other_image) { create(:image) }
@@ -51,5 +51,11 @@ RSpec.describe "Potepan::Categories", type: :system do
 
   it "表示されている商品一覧の個数と商品数が一致する" do
     expect(page.all('.productBox').count).to eq taxon.all_products.count
+  end
+
+  it "page_headerに「SHOP」が表示される" do
+    within('.pageHeader') do
+      expect(page).to have_content "SHOP"
+    end
   end
 end

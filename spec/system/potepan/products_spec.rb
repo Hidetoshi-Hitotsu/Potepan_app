@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Potepan::Products", type: :system do
-  !let(:taxon) { create(:taxon) }
-  !let(:product) { create(:product, taxons: [taxon]) }
-  !let(:image) { create(:image) }
+  let(:taxon) { create(:taxon) }
+  let(:product) { create(:product, taxons: [taxon]) }
+  let(:image) { create(:image) }
 
   before do
     product.images << image
@@ -19,5 +19,11 @@ RSpec.describe "Potepan::Products", type: :system do
     expect(page).to have_content product.name
     expect(page).to have_content product.display_price.to_s
     expect(page).to have_content product.description
+  end
+
+  it "page_headerに「SHOP」が表示されない" do
+    within('.pageHeader') do
+      expect(page).to_not have_content "SHOP"
+    end
   end
 end
