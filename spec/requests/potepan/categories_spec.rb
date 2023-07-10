@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Potepan::Categories", type: :request do
   describe "GET /show" do
+    let(:taxonomy) { create(:taxonomy) }
     let(:taxon) { create(:taxon) }
     let(:other_taxon) { create(:taxon) }
-    let!(:product) { create(:product, taxons: [taxon]) }
-    let!(:other_product) { create(:product, taxons: [other_taxon]) }
+    let(:product) { create(:product, taxons: [taxon]) }
+    let(:other_product) { create(:product, taxons: [other_taxon]) }
     let(:image) { create(:image) }
     let(:other_image) { create(:image) }
 
@@ -31,6 +32,7 @@ RSpec.describe "Potepan::Categories", type: :request do
 
     it "カテゴリー情報が取得できていること" do
       expect(response.body).to include(taxon.name)
+      expect(response.body).to include(taxonomy.name)
     end
   end
 end

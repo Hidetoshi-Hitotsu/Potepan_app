@@ -21,9 +21,11 @@ RSpec.describe "Potepan::Categories", type: :system do
   end
 
   scenario "サイドバーにカテゴリが正しく表示されている" do
-    expect(page).to have_content taxonomy.name
-    expect(page).to have_content taxon.name
-    expect(page).to have_content taxon.all_products.count
+    within('.side-nav') do
+      expect(page).to have_content taxonomy.name
+      expect(page).to have_content taxon.name
+      expect(page).to have_content taxon.products.count
+    end
   end
 
   scenario "カテゴリーに基づいた商品が適切に表示されている" do
