@@ -16,9 +16,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render 'shared/header'%>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div class="main-wrapper">
+      <%= render 'shared/header'%>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

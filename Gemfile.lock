@@ -76,6 +76,8 @@ GEM
       zeitwerk (~> 2.3)
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -1175,6 +1177,15 @@ GEM
     cancancan (3.2.1)
     canonical-rails (0.2.11)
       rails (>= 4.1, < 6.2)
+    capybara (3.39.2)
+      addressable
+      matrix
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (>= 1.5, < 3.0)
+      xpath (~> 3.2)
     carmen (1.1.3)
       activesupport (>= 3.0.0)
     choice (0.2.0)
@@ -1257,6 +1268,7 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
+    matrix (0.4.2)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -1266,7 +1278,7 @@ GEM
       rake
     mini_magick (4.11.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.8.2)
     minitest (5.14.4)
     monetize (1.11.0)
       money (~> 6.12)
@@ -1275,8 +1287,8 @@ GEM
     msgpack (1.4.2)
     mysql2 (0.5.3)
     nio4r (2.5.7)
-    nokogiri (1.11.3)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.15.3)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     paperclip (6.1.0)
@@ -1306,12 +1318,13 @@ GEM
       yard (~> 0.9.11)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
+    public_suffix (5.0.1)
     puma (5.2.2)
       nio4r (~> 2.0)
-    racc (1.5.2)
-    rack (2.2.3)
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    racc (1.7.1)
+    rack (2.2.7)
+    rack-test (2.1.0)
+      rack (>= 1.3)
     rails (6.1.3.2)
       actioncable (= 6.1.3.2)
       actionmailbox (= 6.1.3.2)
@@ -1406,6 +1419,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby-vips (2.1.2)
       ffi (~> 1.12)
+    rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -1416,6 +1430,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selenium-webdriver (4.9.0)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     solidus (2.11.10)
       solidus_api (= 2.11.10)
       solidus_backend (= 2.11.10)
@@ -1527,9 +1545,16 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webdrivers (5.2.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (~> 4.0)
+    websocket (1.2.9)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     yard (0.9.26)
     zeitwerk (2.4.2)
 
@@ -1541,6 +1566,7 @@ DEPENDENCIES
   aws-sdk (~> 3.0)
   bootsnap
   byebug
+  capybara
   factory_bot_rails
   jbuilder (~> 2.11)
   listen (>= 3.0.5, < 4.0)
@@ -1564,6 +1590,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 4.2.0)
   web-console (>= 4.1.0)
+  webdrivers
 
 RUBY VERSION
    ruby 2.7.3p183

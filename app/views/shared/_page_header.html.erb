@@ -3,13 +3,16 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="page-title">
-          <h2><%= product_name %></h2>
+          <h2><%= page_name %></h2>
         </div>
       </div>
       <div class="col-xs-6">
         <ol class="breadcrumb pull-right">
-          <li><%= link_to "Home", potepan_index_path %></li>
-          <li class="active"><%= product_name %></li>
+          <li><%= link_to "HOME", potepan_index_path %></li>
+          <% if @taxon.present? %>
+            <li><%= link_to "SHOP", "#" %></li>
+          <% end %>
+          <li class="active"><%= page_name %></li>
         </ol>
       </div>
     </div>
